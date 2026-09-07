@@ -37,11 +37,12 @@ module if_stage(
   end
 
   // instruction memory
-  // depth 256
-  logic [31:0] imem [0:255];
   logic [31:0] inst;
-  assign inst = imem[pc[7:0]];
-
+  inst_mem IMEM (
+    .pc(pc),
+    .inst(inst)
+    );
+    
   // IF/ID pipeline registers
   always_ff @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
