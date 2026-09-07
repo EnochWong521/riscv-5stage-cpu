@@ -28,7 +28,7 @@ module if_stage(
   end
 
   // multiplex between PC sources
-  always_ff @(posedge clk or negedge rst_n) begin
+  always_ff @(posedge clk) begin
     if (!rst_n) begin
       pc <= 32'b0;
     end else begin
@@ -44,7 +44,7 @@ module if_stage(
     );
     
   // IF/ID pipeline registers
-  always_ff @(posedge clk or negedge rst_n) begin
+  always_ff @(posedge clk) begin
     if (!rst_n) begin
       inst_id <= 32'b0;
       pc_id <= 32'b0;
