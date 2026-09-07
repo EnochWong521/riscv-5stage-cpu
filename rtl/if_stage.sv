@@ -27,7 +27,7 @@ module if_stage(
     end
   end
 
-  // multiplex between PC sources
+  // update PC registers 
   always_ff @(posedge clk) begin
     if (!rst_n) begin
       pc <= 32'b0;
